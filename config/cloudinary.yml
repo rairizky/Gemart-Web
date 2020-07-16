@@ -1,0 +1,10 @@
+# config/cloudinary.yml
+development:
+  cloud_name: "dkwcgotkl"
+  api_key: "343779193534851"
+  api_secret: "IzLahL395PFykBDASGKEAtUWgWo"
+
+production:
+  cloud_name: "dkwcgotkl"
+  api_key: "343779193534851"
+  api_secret: "IzLahL395PFykBDASGKEAtUWgWo"
