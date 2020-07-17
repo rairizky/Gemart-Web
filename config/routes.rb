@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   post '/api/v1/register_supplier', to: 'users#register_supplier'
   post '/api/v1/login_supplier', to: 'users#login_supplier'
 
+  post '/api/v1/profile/supplier/propose', to: 'supplier#propose_supplier'
+  get '/api/v1/profile/supplier', to: 'supplier#profile'
+
   # home
   get '/api/v1/auto_login', to: 'users#auto_login'
+  get '/api/v1/main/supplier', to: 'main#list_supplier'
 
 end
