@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
     belongs_to :role
     has_many :suppliers
+    has_many :gerais
 
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true

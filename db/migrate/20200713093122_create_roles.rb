@@ -5,5 +5,12 @@ class CreateRoles < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    role = ['admin', 'supplier', 'gerai']
+    role.each do |c|
+      Role.create! do |item|
+        item.name = c
+      end
+    end
   end
 end

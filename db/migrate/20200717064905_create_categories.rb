@@ -5,5 +5,12 @@ class CreateCategories < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    category = ['sandang', 'pangan', 'papan']
+    category.each do |c|
+      Category.create! do |item|
+        item.name = c
+      end
+    end
   end
 end

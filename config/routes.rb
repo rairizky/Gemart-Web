@@ -7,14 +7,19 @@ Rails.application.routes.draw do
   post '/api/v1/register_gerai', to: 'users#register_gerai'
   post '/api/v1/login_gerai', to: 'users#login_gerai'
 
+  post '/api/v1/profile/gerai/propose', to: 'gerai#propose_gerai'
+  get '/api/v1/profile/gerai/', to: 'gerai#profile'
+  get '/api/v1/profile/gerai/list_gerai', to: 'gerai#list_gerai'
+
   # supplier
   post '/api/v1/register_supplier', to: 'users#register_supplier'
   post '/api/v1/login_supplier', to: 'users#login_supplier'
 
   post '/api/v1/profile/supplier/propose', to: 'supplier#propose_supplier'
   get '/api/v1/profile/supplier', to: 'supplier#profile'
+  get '/api/v1/profile/supplier/list_supplier', to: 'supplier#list_supplier'
 
-  # home
+  # public
   get '/api/v1/auto_login', to: 'users#auto_login'
   get '/api/v1/main/supplier', to: 'main#list_supplier'
 

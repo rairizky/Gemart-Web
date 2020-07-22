@@ -8,5 +8,12 @@ class CreateUsers < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    User.create! do |u|
+      u.username = 'admingemart'
+      u.email = 'admin@gemart.com'
+      u.password = 'admingemart'
+      u.role_id = 1
+    end
   end
 end
