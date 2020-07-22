@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   post '/api/v1/profile/gerai/propose', to: 'gerai#propose_gerai'
   get '/api/v1/profile/gerai/', to: 'gerai#profile'
+  post '/api/v1/profile/gerai', to: 'gerai#create_profile'
   get '/api/v1/profile/gerai/list_gerai', to: 'gerai#list_gerai'
+  
 
   # supplier
   post '/api/v1/register_supplier', to: 'users#register_supplier'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
 
   post '/api/v1/profile/supplier/propose', to: 'supplier#propose_supplier'
   get '/api/v1/profile/supplier', to: 'supplier#profile'
+  post '/api/v1/profile/supplier', to: 'supplier#create_profile'
   get '/api/v1/profile/supplier/list_supplier', to: 'supplier#list_supplier'
 
   # public

@@ -35,7 +35,18 @@ class ApplicationController < ActionController::API
     end
 
     def authorized
-        render json: { message: 'Silahkan login terlebih dahulu' }, status: :unauthorized unless logged_in?
+        render json: { status: 1, message: 'Silahkan login terlebih dahulu' }, status: :unauthorized unless logged_in?
     end
     
+    def check_admin
+        render json: { status: 1, error: "You are not allowed to access this page!" }, status: :unauthorized unless @user.role_id == 1
+    end
+
+    def check_supplier
+        render json: { status: 1, error: "You are not allowed to access this page!" }, status: :unauthorized unless @user.role_id == 2
+    end
+
+    def check_gerai
+        render json: { status: 1, error: "You are not allowed to access this page!" }, status: :unauthorized unless @user.role_id == 3
+    end
 end

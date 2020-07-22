@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_secure_password
 
     belongs_to :role
+    has_one :profile
     has_many :suppliers
     has_many :gerais
 
