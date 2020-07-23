@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   # admin
   post '/api/v1/login_admin', to: 'users#login_admin'
 
+  get '/api/v1/profile/admin', to: 'admin#profile'
+  get '/api/v1/admin/dashboard', to: 'admin#dashboard_data'
+  get '/api/v1/admin/propose/supplier', to: 'admin#propose_data_supplier'
+  get '/api/v1/admin/propose/gerai', to: 'admin#propose_data_gerai'
+  get '/api/v1/admin/data/all_supplier', to: 'admin#all_supplier'
+  get '/api/v1/admin/data/all_gerai', to: 'admin#all_gerai'
+  get '/api/v1/admin/data/all_user', to: 'admin#all_user'
+
   # gerai
   post '/api/v1/register_gerai', to: 'users#register_gerai'
   post '/api/v1/login_gerai', to: 'users#login_gerai'
