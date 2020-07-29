@@ -25,13 +25,20 @@ class GeraiController < ApplicationController
     end
 
     def propose_gerai
-        @update = Gerai.create(params_propose)
-        if @update.valid?
-            render json: { status: 0, 
-                message: "Berhasil mengajukan sebagai gerai, tunggu info lebih lanjut dari pihak kami." }
+        find = User.find(@user.id)
+        gerai = find.gerais.find_by(name: params[:name])
+        if gerai.blank?
+            @update = Gerai.create(params_propose)
+            if @update.valid?
+                render json: { status: 0, 
+                    message: "Berhasil mengajukan sebagai gerai, tunggu info lebih lanjut dari pihak kami." }
+            else
+                render json: { status: 1, error: @update.errors.full_messages }
+            end
         else
-            render json: { status: 1, error: @update.errors.full_messages }
+            render json: {  status: 1, error: "Anda telah membuat gerai dengan nama #{params[:name]}, pilih nama yang lain" }
         end
+        
     end
 
     def list_gerai

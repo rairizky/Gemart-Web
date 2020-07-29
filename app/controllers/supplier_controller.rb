@@ -25,12 +25,18 @@ class SupplierController < ApplicationController
     end
 
     def propose_supplier
-        @update = Supplier.create(params_propose)
-        if @update.valid?
-            render json: { status: 0, 
-                message: "Berhasil mengajukan sebagai supplier, tunggu info lebih lanjut dari pihak kami." }
+        find = User.find(@user.id)
+        supplier = find.suppliers.find_by(name: params[:name])
+        if supplier.blank?
+            @update = Supplier.create(params_propose)
+            if @update.valid?
+                render json: { status: 0, 
+                    message: "Berhasil mengajukan sebagai supplier, tunggu info lebih lanjut dari pihak kami." }
+            else
+                render json: { status: 1, error: @update.errors.full_messages }
+            end
         else
-            render json: { status: 1, error: @update.errors.full_messages }
+            render json: {  status: 1, error: "Anda telah membuat Supplier dengan nama #{params[:name]}, pilih nama yang lain" }
         end
     end
 
