@@ -48,6 +48,11 @@ class GeraiController < ApplicationController
         render json: { status: 0, user_id: find.id, total: total, gerai: gerai}
     end
 
+    def detail_gerai
+        get_gerai = Gerai.find(params[:id])
+        render json: { status: 0, gerai: get_gerai }
+    end
+
     private
     def params_propose
         params.permit(:name, :image, :owner, :address, :user_id, :category_id, :lat, :long)

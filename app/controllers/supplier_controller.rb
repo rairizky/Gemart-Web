@@ -47,6 +47,11 @@ class SupplierController < ApplicationController
         render json: { status: 0, user_id: find.id, total: total, supplier: supplier}
     end
 
+    def detail_supplier
+        get_supplier = Supplier.find(params[:id])
+        render json: { status: 0, gerai: get_supplier }
+    end
+
     private
     def params_propose
         params.permit(:name, :image, :owner, :address, :user_id, :category_id, :lat, :long)
